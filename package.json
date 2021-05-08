@@ -1,5 +1,5 @@
 {
-  "name": "ceasar_cipher_cli_tool",
+  "name": "ceasar-cipher-cli",
   "version": "1.0.0",
   "description": "Ceasar cipher CLI tool - first task RS School NodeJS 2021Q2",
   "main": "src/main.js",
