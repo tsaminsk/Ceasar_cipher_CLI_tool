@@ -1,7 +1,7 @@
 {
   "name": "ceasar-cipher-cli",
   "version": "1.0.0",
-  "description": "Ceasar cipher CLI tool - first task RS School NodeJS 2021Q2",
+  "description": "Ceasar cipher CLI - CLI tool for encrypting and decrypting texts with the Caesar cipher. For more information read file readme.md",
   "main": "src/main.js",
   "bin": "src/main.js",
   "scripts": {
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/tsaminsk/Ceasar_cipher_CLI_tool/issues"
   },
-  "homepage": "https://github.com/tsaminsk/Ceasar_cipher_CLI_tool#readme"
+  "homepage": "https://github.com/tsaminsk/Ceasar_cipher_CLI_tool#readme",
+  "dependencies": {
+    "commander": "^7.2.0"
+  }
 }
