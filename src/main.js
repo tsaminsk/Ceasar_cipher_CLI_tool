@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const { options } = require('./commander');
 const { checkParams } = require('./checkParams');
+const { getInput } = require('./getInput');
 
 const { version, name, description } = require('../package.json');
 
@@ -12,7 +13,10 @@ if (options.version) {
 
 checkParams(options.action, options.shift);
 
+const inputStream = getInput(options.input);
 
-console.log(`@${name}`);
-console.log(`@${description}`);
-console.log('options: ', options);
+console.log('inputStream: ', inputStream);
+
+// console.log(`@${name}`);
+// console.log(`@${description}`);
+// console.log('options: ', options);

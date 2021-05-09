@@ -16,7 +16,7 @@ commander
     .option('-v, --version', 'get current version of CLI tool')
     .option('-a, --action [type],', 'action encode || decode')
     .option('-s, --shift <number>', 'shift for cipher')
-    .option('-i, --input [file]', 'input file')
+    .option('-i, --input [input file]', 'input text or file path')
     .option('-o, --output [file]', 'output file')
     .parse(process.argv);
 
