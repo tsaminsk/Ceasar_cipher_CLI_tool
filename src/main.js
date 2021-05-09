@@ -18,7 +18,7 @@ const { version, name, description } = require('../package.json');
 commander
     .option('-v, --version', 'get current version of CLI tool')
     .option('-a, --action [type],', 'action encode || decode')
-    .option('-s, --shift <number>', 'shift for cipher', 0)
+    .option('-s, --shift <number>', 'shift for cipher')
     .option('-i, --input [file]', 'input file')
     .option('-o, --output [file]', 'output file')
     .parse(process.argv);
@@ -28,7 +28,7 @@ const options = commander.opts()
 if (options.version) {
     console.log(`@${name}`);
     console.log(`version: ${version}`);
-    process.exit(1)
+    process.exit(1);
 }
 
 checkParams(options.action);

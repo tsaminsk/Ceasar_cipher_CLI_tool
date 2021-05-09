@@ -1,7 +1,12 @@
-const checkParams = (action) => {
+const checkParams = (action, shift) => {
 
     if (action !== 'encode' && action !== 'decode') {
         process.stderr.write('Error: Required parameter must be specified action: encode / decode');
+        process.exit(1);
+    }
+
+    if (typeof shift != 'number') {
+        process.stderr.write('Error: Offset for encryption must be a number');
         process.exit(1);
     }
 }
