@@ -22,6 +22,6 @@ commander
 
 const options = commander.opts();
 
-options.shift = parseInt(options.shift);
+options.shift = parseFloat(options.shift);
 
 module.exports = { options };

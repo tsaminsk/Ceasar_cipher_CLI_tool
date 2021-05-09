@@ -10,10 +10,9 @@ if (options.version) {
     process.exit(1);
 }
 
-// console.log('shift: ', typeof options.shift);
 checkParams(options.action, options.shift);
 
 
-// console.log(`@${name}`);
-// console.log(`@${description}`);
+console.log(`@${name}`);
+console.log(`@${description}`);
 console.log('options: ', options);
