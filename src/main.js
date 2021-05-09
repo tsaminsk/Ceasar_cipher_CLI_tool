@@ -1,5 +1,6 @@
 #!/usr/bin/env node
-const commander = require('commander')
+const commander = require('commander');
+const { checkParams } = require('./checkParams');
 
 const { version, name, description } = require('../package.json');
 
@@ -17,7 +18,7 @@ const { version, name, description } = require('../package.json');
 commander
     .option('-v, --version', 'get current version of CLI tool')
     .option('-a, --action [type],', 'action encode || decode')
-    .option('-s, --shift [number]', 'shift for cipher', 0)
+    .option('-s, --shift <number>', 'shift for cipher', 0)
     .option('-i, --input [file]', 'input file')
     .option('-o, --output [file]', 'output file')
     .parse(process.argv);
@@ -27,8 +28,11 @@ const options = commander.opts()
 if (options.version) {
     console.log(`@${name}`);
     console.log(`version: ${version}`);
-} else {
-    console.log(`@${name}`);
-    console.log(`@${description}`);
-    console.log('options: ', options);
+    process.exit(1)
 }
+
+checkParams(options.action);
+
+console.log(`@${name}`);
+console.log(`@${description}`);
+console.log('options: ', options);
