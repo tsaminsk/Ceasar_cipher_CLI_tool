@@ -13,7 +13,7 @@ if (options.version) {
     process.exit(1);
 }
 
-checkParams(options.action, options.shift);
+checkParams(options);
 
 const inputStream = getInput(options.input);
 const outputStream = getOutput(options.output);
@@ -24,10 +24,15 @@ stream
     .pipeline(
         inputStream,
         transformStream,
-        outputStream
+        outputStream,
+        err => {
+            if (err) {
+                console.error('Failed', err)
+            } else {
+                console.log('Done')
+            }
+        }
     )
-    .then((resp) => console.log('pipeline then', resp))
-    .catch((err) => console.log(err))
 
 // console.log(`@${name}`);
 // console.log(`@${description}`);
