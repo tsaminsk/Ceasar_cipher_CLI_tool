@@ -5,7 +5,7 @@ const checkParams = (action, shift) => {
         process.exit(1);
     }
 
-    if (typeof shift != 'number') {
+    if (typeof shift != 'number' || isNaN(shift)) {
         process.stderr.write('Error: Offset for encryption must be a number');
         process.exit(1);
     }
