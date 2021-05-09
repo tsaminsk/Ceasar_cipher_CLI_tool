@@ -10,7 +10,7 @@ class CipherTransform extends Transform {
     _transform(data, encoder, callback) {
         try {
             const result = cipher[this.options.action](data.toString('utf8'), this.options.shift);
-            callback(null, `${result}\n`);
+            callback(null, result);
         } catch (error) {
             callback(error);
         }

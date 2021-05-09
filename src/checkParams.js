@@ -10,7 +10,7 @@ const checkParams = ({ action, shift, input, output }) => {
         process.exit(1);
     }
 
-    if (input === output) {
+    if (!!input && input === output) {
         process.stderr.write('Error: The name of the data file and the result file cannot be the same');
         process.exit(1);
     }

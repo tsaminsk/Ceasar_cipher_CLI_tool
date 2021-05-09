@@ -1,7 +1,7 @@
 
 
 const encode = (text, shift) => {
-    const coding = (code, start) => currentText += String.fromCharCode((code - start + Number(shift)) % 26 + start);
+    const coding = (codeAt, start) => String.fromCharCode((codeAt - start + Number(shift)) % 26 + start);
     let currentText = '';
     for (let i = 0; i < text.length; i++) {
         let codeAt = text.charCodeAt(i);
