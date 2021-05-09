@@ -3,7 +3,7 @@ const stream = require('stream');
 const { options } = require('./commander');
 const { checkParams } = require('./checkParams');
 const { getInput, getOutput } = require('./getStreams');
-const { transformStream } = require('./transformStream');
+const { CipherTransform } = require('./transformStream');
 
 const { version, name, description } = require('../package.json');
 
@@ -16,7 +16,9 @@ if (options.version) {
 checkParams(options.action, options.shift);
 
 const inputStream = getInput(options.input);
-const outputStream = getInput(options.output);
+const outputStream = getOutput(options.output);
+
+const transformStream = new CipherTransform(options);
 
 stream
     .pipeline(
@@ -24,7 +26,8 @@ stream
         transformStream,
         outputStream
     )
-    .then((resp) => console.log('pipeline then', resp));
+    .then((resp) => console.log('pipeline then', resp))
+    .catch((err) => console.log(err))
 
 // console.log(`@${name}`);
 // console.log(`@${description}`);
